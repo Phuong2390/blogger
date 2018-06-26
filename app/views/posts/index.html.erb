@@ -3,6 +3,7 @@
  
 <% @posts.each do |post| %>
     <h2><%= post.title %> </h2>
+    <%= image_tag post.image_url.to_s %>
     <p><%= post.all_tags %></p>
     <div><%= truncate(post.content, :length =>25) %> </div>
     <%= link_to "Read Post", post %>
