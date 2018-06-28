@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
+  
   def index
-    @posts = Post.all.order("created_at DESC")
+    @posts = Post.search(params[:term])
   end
 
   def new
@@ -42,7 +43,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :summary, :content, :image, :public, :all_tags)
+    params.require(:post).permit(:title, :summary, :content, :image, :public, :all_tags, :term)
   end
 
 end

@@ -19,4 +19,12 @@ class Post < ApplicationRecord
         tags.map(&:name).join(", ")
     end
     
+    def self.search(term)
+        if term
+            where('title LIKE ?', "%#{term}%").order('id DESC')
+        else 
+            all.order('id DESC')
+        end
+    end
+        
 end

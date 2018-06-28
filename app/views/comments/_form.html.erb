@@ -1,13 +1,30 @@
 <%= form_for([@post,@post.comments.build]) do |f| %>
-  <p>
-        <%= f.label :name %><br>
-        <%= f.text_field :name %><br/>
-  </p>
-  <p>
-        <%= f.label :content %><br>
-        <%= f.text_area :content %><br/>
-  </p>
-  <p>
-        <%= f.submit %>
-  </p>
+<div class="container">
+      <div class="row">
+            <form role="form" id="contact-form" class="contact-form">
+                  <div class="row">
+                        <div class="col-md-11">
+                              <div class="form-group">
+                                    <%= f.label :name %><br />
+						<%= f.text_field :name, autocomplete: "name", class: "form-control" %>                                    
+                              </div>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-md-11">
+                              <div class="form-group">
+                                    <%= f.label :Content %><br />
+                                    <%= f.text_area :content, class: "form-control textarea"%>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-md-11">
+                              
+                              <button type="submit" class="btn btn-success btn-lg btn-block">Comment</button>
+                        </div>
+                  </div>
+            </form>
+      </div>
+</div>
 <% end %>
