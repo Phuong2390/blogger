@@ -7,25 +7,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top w3-hide-small">
-    <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
-      <a href="#" class="w3-bar-item w3-button"> 
-          <% if !user_signed_in? %>
-            <%= link_to "LOGIN", new_user_session_path %>
-          <% end %></a>
-      <a href="#" class="w3-bar-item w3-button">HOME</a>
-      <a href="#menu" class="w3-bar-item w3-button">MENU</a>
-      <a href="#about" class="w3-bar-item w3-button">ABOUT</a>
-      <a href="#googleMap" class="w3-bar-item w3-button">CONTACT</a>
-
-    </div>
-  </div>
-
-  <body>
+  <%= render 'layouts/header' %>
+  <body> 
+    <!--
     <% if user_signed_in? %>
       <div class="buttons">
           <button class="button"><%= link_to "New Post", new_post_path %></button>
@@ -35,6 +23,7 @@
     
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    -->
     <%= yield %>
 
   </body>

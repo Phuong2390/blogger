@@ -1,11 +1,27 @@
-<h1>My Blog</h1>
-<p>Xin chao ban den voi blog cua toi</p>
- 
-<% @posts.each do |post| %>
-    <h2><%= post.title %> </h2>
-    <%= image_tag post.image_url.to_s %>
-    <p><%= post.all_tags %></p>
-    <div><%= truncate(post.content, :length =>25) %> </div>
-    <%= link_to "Read Post", post %>
-<% end %>
-
+<div class="container">
+    <div class="leftcolum">
+        <div class="card">
+        <% @posts.each do |post| %>
+            <h2><%= post.title %></h2>
+            <p>Tag: <%= post.all_tags %></p>
+            <h5><%= time_ago_in_words(post.created_at)%></h5>
+            <div class="fakeimg"><%= image_tag post.image_url.to_s %></div>
+            <p><%= truncate(post.content, :length => 50) %></p>
+            <%= link_to 'Read More →', post_path(post) %>
+        <% end %>
+        </div>
+    </div>
+    <div class="rightcolumn">
+        <div class="card">
+            <h2>About Me</h2>
+            <div class="fakeimg" style="height:100px;">Image</div>
+            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+        </div>
+        <div class="card">
+            <h3>Popular Post</h3>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div><br>
+            <div class="fakeimg">Image</div>
+        </div> 
+    </div>
+</div>
